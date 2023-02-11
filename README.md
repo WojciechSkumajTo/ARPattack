@@ -1,6 +1,6 @@
 # ARPattack
 
-Celem projektu jest analiza i zrozumienie mechanizmu działania protokołu ARP oraz jego możliwości wykorzystania w atakach Man-in-the-Middle.
+Celem projektu jest analiza i zrozumienie mechanizmu działania protokołu ARP oraz jego możliwości wykorzystania w atakach ***Man-in-the-Middle***.
 
 ## Intro
 
@@ -8,7 +8,7 @@ Celem projektu jest analiza i zrozumienie mechanizmu działania protokołu ARP o
 
 ARP – _(ang. Address resolution protocol)_ jest protokołem sieciowym używanym do mapowania adresów IP na adresy MAC w sieciach lokalnych (LAN). Jest to niezbędne, ponieważ wiele urządzeń w sieci LAN, takich jak routery, komputery komunikują się za pomocą adresów MAC, podczas gdy protokoły komunikacji takie jak TCP i UDP, używają adresów IP.
 
-Protokół ARP jest protokołem znajdującym się w warstwie łącza danych (ang. Data Link Layer) w modelu ISO/OSI. Warstwa ta odpowiada za transmisję danych pomiędzy urządzeniami w sieci LAN.
+Protokół ARP jest protokołem znajdującym się w warstwie łącza danych _(ang. Data Link Layer)_ w modelu ISO/OSI. Warstwa ta odpowiada za transmisję danych pomiędzy urządzeniami w sieci LAN.
 
 ### Atak ARP spoofing
 
@@ -62,7 +62,7 @@ Jeśli atakujący też chce przechwycić ruch internetowy przeznaczony dla ofiar
 | *Rezultat programu nmap* |
 
 #### ETAP 2 
-- Po uzyskaniu adresów IP hostów w sieci, uruchamiamy skrypt "arpspoof.py", którego celem jest przekazywanie fałszywych odpowiedzi i manipulowanie tabelą ARP. Dzięki wykorzystaniu tego skryptu, jesteśmy w stanie zmienić zawartość tabeli ARP w celu przekierowania ruchu sieciowego przez nasze urządzenie, co pozwala na monitorowanie i ewentualne zmodyfikowanie danych przesyłanych w sieci. W ten sposób, uzyskujemy kontrolę nad ruchem sieciowym i możemy wykonać atak typu Man-in-the-Middle.
+- Po uzyskaniu adresów IP hostów w sieci, uruchamiamy skrypt "arpspoof.py", którego celem jest przekazywanie fałszywych odpowiedzi i manipulowanie tabelą ARP. Dzięki wykorzystaniu tego skryptu, jesteśmy w stanie zmienić zawartość tabeli ARP w celu przekierowania ruchu sieciowego przez nasze urządzenie, co pozwala na monitorowanie i ewentualne zmodyfikowanie danych przesyłanych w sieci. W ten sposób, uzyskujemy kontrolę nad ruchem sieciowym i możemy wykonać atak typu _Man-in-the-Middle_.
 
 ![command_attack](https://user-images.githubusercontent.com/70896562/218269945-ae367823-e8bb-4602-81d5-862d3247776b.png)
 |:--:| 
@@ -74,13 +74,13 @@ Jeśli atakujący też chce przechwycić ruch internetowy przeznaczony dla ofiar
 | *Topologia sieci po wykonaniu skryptu* |
 
 
-- Poprzez wysyłanie fałszywych odpowiedzi ARP, celowo wprowadzamy ofiarę w błąd, sugerując, że nasz adres MAC jest adresem IP serwera Metaploitable. Dzięki takiemu działaniu, ofiara uważa, że nasze urządzenie jest punktem końcowym, do którego powinny być skierowane wszystkie dane przesyłane w sieci.
+- Poprzez wysyłanie fałszywych odpowiedzi ARP, celowo wprowadzamy ofiarę w błąd, sugerując, że nasz adres MAC jest adresem IP serwera Metasploitable. Dzięki takiemu działaniu, ofiara uważa, że nasze urządzenie jest punktem końcowym, do którego powinny być skierowane wszystkie dane przesyłane w sieci.
 
 ![mac_router_spoof](https://user-images.githubusercontent.com/70896562/218271191-ac55da1e-04ac-429d-88e2-9ae61ce92b36.png)
 |:--:| 
 | *Zmapowanie adresu MAC atakującego z IP serwera* |
 
-Podobnie jak w przypadku ofiary, serwer również musi być celowo zmanipulowany poprzez wysłanie fałszywych odpowiedzi ARP, aby umożliwić przechwytywanie ruchu ofiary. Dzięki takiemu działaniu, serwer uważa, że nasze urządzenie jest punktem końcowym, do którego powinny być skierowane wszystkie dane przesyłane przez ofiarę.
+- Podobnie jak w przypadku ofiary, serwer również musi być celowo zmanipulowany poprzez wysłanie fałszywych odpowiedzi ARP, aby umożliwić przechwytywanie ruchu ofiary. Dzięki takiemu działaniu, serwer uważa, że nasze urządzenie jest punktem końcowym, do którego powinny być skierowane wszystkie dane przesyłane przez ofiarę.
 
 ![mac_spoof](https://user-images.githubusercontent.com/70896562/218271229-ef3dd155-4843-4ea0-9e87-2a5043146aba.png)
 |:--:| 
@@ -92,7 +92,7 @@ Podobnie jak w przypadku ofiary, serwer również musi być celowo zmanipulowany
 | *Tabela ARP ofiary* |
 
 #### ETAP 4
-- Uzyskanie dostępu do informacji o poświadczeniach, gdy użytkownik (ofiara) loguje się na serwer administracyjny PHPAdmin,
+- Uzyskanie dostępu do informacji o poświadczeniach, gdy użytkownik (ofiara) loguje się na serwer administracyjny _PHPAdmin_
 
 ![cerficication_ubuntu](https://user-images.githubusercontent.com/70896562/218271365-ce27654a-81c9-458d-9c84-94dbf8c4f47e.png)
 |:--:| 
@@ -105,13 +105,13 @@ Podobnie jak w przypadku ofiary, serwer również musi być celowo zmanipulowany
 |:--:| 
 | *Uzyskanie poświadczeń przez atakującego z serwera phpAdmin* |
 
-- Uzyskanie poświadczeń podczas logowania na serwer FTP przez ofiarę
+- Uzyskanie poświadczeń podczas logowania na serwer _FTP_ przez ofiarę
 
 ![logowanie_ftp](https://user-images.githubusercontent.com/70896562/218271500-52cc8b7a-c70f-46e1-8ebb-714fbff11761.png)
 |:--:| 
 | *Logowanie się na serwer FTP przez ofiarę* |
 
-- Uzyskanie poświadczen przez atakujacego (serwer FTP): 
+- Uzyskanie poświadczen przez atakujacego _(serwer FTP)_: 
 
 ![ftp_cert](https://user-images.githubusercontent.com/70896562/218271543-ef59e9a0-bef6-42c3-affb-0053aea1d200.png)
 |:--:| 
