@@ -99,7 +99,7 @@ Jeśli atakujący też chce przechwycić ruch internetowy przeznaczony dla ofiar
 | *Wprowadzanie informacji o poświadczeniach przez ofiarę na serwerze phpAdmin* |
 
 
-- Otrzymany ruch przez atakującego (serwer phpAdmin):
+- Otrzymany ruch przez atakującego _(serwer phpAdmin)_:
 
 ![get_password](https://user-images.githubusercontent.com/70896562/218271419-f0479c28-752b-4d22-8630-f62363088133.png)
 |:--:| 
