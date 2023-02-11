@@ -121,12 +121,12 @@ Podobnie jak w przypadku ofiary, serwer również musi być celowo zmanipulowany
 
 ![restore_arp](https://user-images.githubusercontent.com/70896562/218271603-f68db1bd-2141-4fe4-b07e-ce6f4d236a9f.png)
 |:--:| 
-| *Zaktualizowanie tabeli ARP* |
+| *Zaktualizowanie tabeli ARP ofiary* |
 
-Podsumowanie
+### Summary
 
-Poziom niebezpieczeństwa ataku ARP Spoofing w dzisiejszych czasach uważany jest za wysoki. Atak ARP Spoofing jest formą ataku man-in-the-middle, w której atakujący może podsłuchiwać i modyfikować ruch sieciowy. W rezultacie, atakujący może uzyskać dostęp do poufnych informacji, takich jak hasła, dane osobowe i inne wrażliwe informacje.
+- Poziom niebezpieczeństwa ataku ARP Spoofing w dzisiejszych czasach uważany jest za wysoki. Atak ARP Spoofing jest formą ataku man-in-the-middle, w której atakujący może podsłuchiwać i modyfikować ruch sieciowy. W rezultacie, atakujący może uzyskać dostęp do poufnych informacji, takich jak hasła, dane osobowe i inne wrażliwe informacje.
 
-Ataki ARP Spoofing są szczególnie niebezpieczne, ponieważ są trudne do wykrycia i zabezpieczenia przed nimi. Wiele urządzeń i sieci nie jest wystarczająco zabezpieczonych przed tą formą ataku, co umożliwia atakującym łatwe wykorzystanie tej luki w zabezpieczeniach.
+- Ataki ARP Spoofing są szczególnie niebezpieczne, ponieważ są trudne do wykrycia i zabezpieczenia przed nimi. Wiele urządzeń i sieci nie jest wystarczająco zabezpieczonych przed tą formą ataku, co umożliwia atakującym łatwe wykorzystanie tej luki w zabezpieczeniach.
 
-Z tego powodu ważne jest, aby stosować odpowiednie środki ostrożności, takie jak stosowanie oprogramowania antywirusowego, używanie szyfrowania połączeń sieciowych i stosowanie filtrów sieciowych, aby zabezpieczyć się przed atakami ARP Spoofing.
+- Z tego powodu ważne jest, aby stosować odpowiednie środki ostrożności, takie jak stosowanie oprogramowania antywirusowego, używanie szyfrowania połączeń sieciowych i stosowanie filtrów sieciowych, aby zabezpieczyć się przed atakami ARP Spoofing.
