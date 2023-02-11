@@ -94,27 +94,34 @@ Podobnie jak w przypadku ofiary, serwer również musi być celowo zmanipulowany
 #### ETAP 4
 - Uzyskanie dostępu do informacji o poświadczeniach, gdy użytkownik (ofiara) loguje się na serwer administracyjny PHPAdmin,
 
-Wpisywanie poświadczen przez ofiare:
-
 ![cerficication_ubuntu](https://user-images.githubusercontent.com/70896562/218271365-ce27654a-81c9-458d-9c84-94dbf8c4f47e.png)
+|:--:| 
+| *Wprowadzanie informacji o poświadczeniach przez ofiarę na serwerze phpAdmin* |
 
-Otrzymany ruch przez atakujacego:
+
+- Otrzymany ruch przez atakującego (serwer phpAdmin):
 
 ![get_password](https://user-images.githubusercontent.com/70896562/218271419-f0479c28-752b-4d22-8630-f62363088133.png)
+|:--:| 
+| *Uzyskanie poświadczeń przez atakującego z serwera phpAdmin* |
 
-Uzyskanie podświdcze podczas logowanie na serwer FTP przez ofiare 
+- Uzyskanie poświadczeń podczas logowania na serwer FTP przez ofiarę
 
 ![logowanie_ftp](https://user-images.githubusercontent.com/70896562/218271500-52cc8b7a-c70f-46e1-8ebb-714fbff11761.png)
+|:--:| 
+| *Logowanie się na serwer FTP przez ofiarę* |
 
-Uzyskanie poświadczen przez atakujacego: 
+- Uzyskanie poświadczen przez atakujacego (serwer FTP): 
 
 ![ftp_cert](https://user-images.githubusercontent.com/70896562/218271543-ef59e9a0-bef6-42c3-affb-0053aea1d200.png)
+|:--:| 
+| *Uzyskanie poświadczeń przez atakującego z serwera ftp* |
 
-
-Tablea ARP po zakończeniu skryptu: 
+- Tabela ARP po zakończeniu działania skryptu 
 
 ![restore_arp](https://user-images.githubusercontent.com/70896562/218271603-f68db1bd-2141-4fe4-b07e-ce6f4d236a9f.png)
-
+|:--:| 
+| *Zaktualizowanie tabeli ARP* |
 
 Podsumowanie
 
