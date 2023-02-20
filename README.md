@@ -1,14 +1,14 @@
 # ARPattack
 
-Celem projektu jest analiza i zrozumienie mechanizmu działania protokołu ARP oraz jego możliwości wykorzystania w atakach ***Man-in-the-Middle***.
+The goal of the project is to analyze and understand the mechanism of the ARP protocol and its potential for use in ***Man-in-the-Middle***.
 
 ## Intro
 
 ### Address Resolution Protocol
 
-ARP – _(ang. Address resolution protocol)_ jest protokołem sieciowym używanym do mapowania adresów IP na adresy MAC w sieciach lokalnych (LAN). Jest to niezbędne, ponieważ wiele urządzeń w sieci LAN, takich jak routery, komputery komunikują się za pomocą adresów MAC, podczas gdy protokoły komunikacji takie jak TCP i UDP, używają adresów IP.
+ARP - (Address resolution protocol) is a network protocol used to map IP addresses to MAC addresses on local area networks (LAN). This is necessary because many devices on a LAN, such as routers, computers communicate using MAC addresses, while communication protocols such as TCP and UDP, use IP addresses.
 
-Protokół ARP jest protokołem znajdującym się w warstwie łącza danych _(ang. Data Link Layer)_ w modelu ISO/OSI. Warstwa ta odpowiada za transmisję danych pomiędzy urządzeniami w sieci LAN.
+The ARP protocol is a protocol found in the Data Link Layer of the ISO/OSI model. This layer is responsible for the transmission of data between devices on a LAN.
 
 ### Atak ARP spoofing
 
