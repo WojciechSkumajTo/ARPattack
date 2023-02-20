@@ -6,22 +6,22 @@ The goal of the project is to analyze and understand the mechanism of the ARP pr
 
 ### Address Resolution Protocol
 
-ARP - (Address resolution protocol) is a network protocol used to map IP addresses to MAC addresses on local area networks (LAN). This is necessary because many devices on a LAN, such as routers, computers communicate using MAC addresses, while communication protocols such as TCP and UDP, use IP addresses.
+ARP - _(Address resolution protocol)_ is a network protocol used to map IP addresses to MAC addresses on local area networks _(LAN)_. This is necessary because many devices on a LAN, such as routers, computers communicate using MAC addresses, while communication protocols such as TCP and UDP, use IP addresses.
 
 The ARP protocol is a protocol found in the Data Link Layer of the ISO/OSI model. This layer is responsible for the transmission of data between devices on a LAN.
 
 ### Atak ARP spoofing
 
-**Atak ten składa się z dwóch faz:**
-1. W pierwszej fazie atakujący wysyła ofierze fałszywą odpowiedź ARP, stwierdzając, że adres MAC atakującego jest mapowany na adres IP routera. Pozwala to napastnikowi oszukać ofiarę, że komputer atakującego jest routerem.
+**This attack consists of two stages:**
+1. In the first stage, the attacker sends a fake ARP response to the victim, stating that the attacker's MAC address is mapped to the router's IP address. This allows the attacker to fool the victim into thinking that the attacker's computer is a router.
 
-2. Podczas drugiej fazy ofiara akceptuje fałszywy pakiet ARP wysłany przez atakującego i aktualizuje mapowanie w swojej tabeli ARP, aby odzwierciedlić, że adres MAC atakującego jest teraz mapowany na adres IP routera. Oznacza to, że ruch internetowy będzie kierowany do maszyny atakującego zamiast do routera. 
+2. During the second stage, the victim accepts the fake ARP packet sent by the attacker and updates the mapping in its ARP table to reflect that the attacker's MAC address is now mapped to the router's IP address. This means that Internet traffic will be routed to the attacker's machine instead of the router. 
 
-Jeśli atakujący też chce przechwycić ruch internetowy przeznaczony dla ofiary, musi również oszukać router, aby przesłał mu ruch ofiary. Dlatego atakujący musi stworzyć fałszywy pakiet ARP wskazujący, że adres IP ofiary jest mapowany na adres MAC atakującego. Dzięki temu atakujący może przechwycić i zbadać przychodzący ruch internetowy, a następnie przekazać ten ruch ofierze.
+If the attacker also wants to intercept Internet traffic destined for the victim, he must also trick the router into sending the victim's traffic to him. Therefore, the attacker must create a fake ARP packet indicating that the victim's IP address is mapped to the attacker's MAC address. This allows the attacker to intercept and examine incoming Internet traffic and then forward that traffic to the victim.
 
 ## Description 
 
-`arpSpoof.py` - narzędzie, które zostało opracowywane, umożliwia generowanie i wysyłanie sfałszowanych pakietów ARP do różnych urządzeń znajdujących się w sieci, takich jak ofiara, router lub serwer. Celem ataku jest manipulowanie tabelą ARP w celu uzyskania kontroli nad ruchem sieciowym. Po zakończeniu ataku, narzędzie automatycznie przywraca tabelę ARP do stanu pierwotnego, aby uniknąć wykrycia a także dalszych problemów związanych siecią.
+`arpSpoof.py` - a tool that has been developed, enables the generation and sending of forged ARP packets to various devices on the network, such as the victim, router or server. The goal of the attack is to manipulate the ARP table in order to gain control over network traffic. Once the attack is complete, the tool automatically restores the ARP table to its original state to avoid detection and also further network-related problems.
 
 ## Requirements:
 
@@ -43,90 +43,90 @@ Jeśli atakujący też chce przechwycić ruch internetowy przeznaczony dla ofiar
 
 ## Execution of an ARP spoofing attack 
 
-### Informacje ogólne
+### General information
 ![my_ip_attack](https://user-images.githubusercontent.com/70896562/218270119-2954c4b8-1471-4f6d-81ee-842b36dad3a2.png)
 |:--:| 
-| *Adres IP atakującego* |
+| *IP address of the attacker* |
 
 <br/><br/>
 ![image](https://user-images.githubusercontent.com/70896562/218267731-61aaec0b-a68a-44b0-895f-dc982a063309.png)
 |:--:| 
-| *Topologia sieci* |
+| *Network topology* |
 
-### Opis przeprowadznego ataku:
-#### ETAP 1
-- Na początku ataku, przeprowadzane jest skanowanie sieci, którego celem jest identyfikacja hostów znajdujących się w sieci. Skanowanie pozwala na zgromadzenie informacji o adresach IP i MAC urządzeń, które są częścią sieci, co jest niezbędne do dalszego działania ataku.
+### Description of the attack carried out:
+#### STAGE 1
+- At the beginning of the attack, a network scan is carried out to identify hosts on the network. The scan allows gathering information about the IP and MAC addresses of devices that are part of the network, which is necessary for the attack to proceed.
 
 ![scan_network](https://user-images.githubusercontent.com/70896562/218269914-ca036fc2-403e-43b2-a830-89039b023e1e.png)
 |:--:| 
-| *Rezultat programu nmap* |
+| *The result of the nmap program* |
 
-#### ETAP 2 
-- Po uzyskaniu adresów IP hostów w sieci, uruchamiamy skrypt "arpspoof.py", którego celem jest przekazywanie fałszywych odpowiedzi i manipulowanie tabelą ARP. Dzięki wykorzystaniu tego skryptu, jesteśmy w stanie zmienić zawartość tabeli ARP w celu przekierowania ruchu sieciowego przez nasze urządzenie, co pozwala na monitorowanie i ewentualne zmodyfikowanie danych przesyłanych w sieci. W ten sposób, uzyskujemy kontrolę nad ruchem sieciowym i możemy wykonać atak typu _Man-in-the-Middle_.
+#### STAGE 2 
+- After obtaining the IP addresses of the hosts on the network, we run the `arpspoof.py` script, the purpose of which is to transmit false responses and manipulate the ARP table. By using this script, we are able to change the contents of the ARP table to reroute network traffic through our device, allowing us to monitor and possibly modify the data transmitted on the network. In this way, we gain control over the network traffic and can perform an attack of the type _Man-in-the-Middle_.
 
 ![command_attack](https://user-images.githubusercontent.com/70896562/218269945-ae367823-e8bb-4602-81d5-862d3247776b.png)
 |:--:| 
-| *Uruchomienie skryptu w pythonie* |
+| *Running a script in python* |
 
 
 ![Network (1)](https://user-images.githubusercontent.com/70896562/218269863-6abe5aa2-4602-4094-860c-b2aa6d57c255.svg)
 |:--:| 
-| *Topologia sieci po wykonaniu skryptu* |
+| *Network topology after script execution* |
 
 
-- Poprzez wysyłanie fałszywych odpowiedzi ARP, celowo wprowadzamy ofiarę w błąd, sugerując, że nasz adres MAC jest adresem IP serwera Metasploitable. Dzięki takiemu działaniu, ofiara uważa, że nasze urządzenie jest punktem końcowym, do którego powinny być skierowane wszystkie dane przesyłane w sieci.
+- By sending fake ARP responses, we intentionally mislead the victim by suggesting that our MAC address is the IP address of the Metasploitable server. By doing so, the victim believes that our device is the endpoint to which all data sent over the network should be directed.
 
 ![mac_router_spoof](https://user-images.githubusercontent.com/70896562/218271191-ac55da1e-04ac-429d-88e2-9ae61ce92b36.png)
 |:--:| 
-| *Zmapowanie adresu MAC atakującego z IP serwera* |
+| *Mapping the attacker's MAC address with the server's IP* |
 
-- Podobnie jak w przypadku ofiary, serwer również musi być celowo zmanipulowany poprzez wysłanie fałszywych odpowiedzi ARP, aby umożliwić przechwytywanie ruchu ofiary. Dzięki takiemu działaniu, serwer uważa, że nasze urządzenie jest punktem końcowym, do którego powinny być skierowane wszystkie dane przesyłane przez ofiarę.
+- As in the case of the victim, the server also has to be deliberately manipulated by sending fake ARP responses to enable it to intercept the victim's traffic. By doing this, the server believes that our device is the endpoint to which all data sent by the victim should be directed.
 
 ![mac_spoof](https://user-images.githubusercontent.com/70896562/218271229-ef3dd155-4843-4ea0-9e87-2a5043146aba.png)
 |:--:| 
-| *Zmapowanie adresu MAC atakującego z IP ofiary* |
+| *Mapping the attacker's MAC address with the victim's IP.* |
 
 
 ![tabela_arp](https://user-images.githubusercontent.com/70896562/218271320-9c0c5ef5-8c35-41e9-8aff-7ad3bcdfb443.png)
 |:--:| 
-| *Tabela ARP ofiary* |
+| *Victim ARP table* |
 
-#### ETAP 4
-- Uzyskanie dostępu do informacji o poświadczeniach, gdy użytkownik (ofiara) loguje się na serwer administracyjny _PHPAdmin_
+#### STAGE 3
+- Accessing credentials information when a user (victim) logs into the administration server _PHPAdmin_
 
 ![cerficication_ubuntu](https://user-images.githubusercontent.com/70896562/218271365-ce27654a-81c9-458d-9c84-94dbf8c4f47e.png)
 |:--:| 
-| *Wprowadzanie informacji o poświadczeniach przez ofiarę na serwerze phpAdmin* |
+| *Input of credential information by the victim on the phpAdmin server* |
 
 
-- Otrzymany ruch przez atakującego _(serwer phpAdmin)_:
+- Movement received by the attacker _(serwer phpAdmin)_:
 
 ![get_password](https://user-images.githubusercontent.com/70896562/218271419-f0479c28-752b-4d22-8630-f62363088133.png)
 |:--:| 
-| *Uzyskanie poświadczeń przez atakującego z serwera phpAdmin* |
+| *Obtaining credentials by attacker from phpAdmin server* |
 
-- Uzyskanie poświadczeń podczas logowania na serwer _FTP_ przez ofiarę
+- Obtaining credentials while logging in to the _FTP_ server by the victim
 
 ![logowanie_ftp](https://user-images.githubusercontent.com/70896562/218271500-52cc8b7a-c70f-46e1-8ebb-714fbff11761.png)
 |:--:| 
-| *Logowanie się na serwer FTP przez ofiarę* |
+| *Logging in to the FTP server by the victim* |
 
-- Uzyskanie poświadczen przez atakujacego _(serwer FTP)_: 
+- Obtaining credentials by an attacker _(FTP server)_: 
 
 ![ftp_cert](https://user-images.githubusercontent.com/70896562/218271543-ef59e9a0-bef6-42c3-affb-0053aea1d200.png)
 |:--:| 
-| *Uzyskanie poświadczeń przez atakującego z serwera ftp* |
+| *Obtaining credentials by attacker from ftp server* |
 
-- Tabela ARP po zakończeniu działania skryptu 
+- ARP table after the script has finished running 
 
 ![restore_arp](https://user-images.githubusercontent.com/70896562/218271603-f68db1bd-2141-4fe4-b07e-ce6f4d236a9f.png)
 |:--:| 
-| *Zaktualizowanie tabeli ARP ofiary* |
+| *Update the victim's ARP table* |
 
 ### Summary
 
-- Poziom niebezpieczeństwa ataku ARP Spoofing w dzisiejszych czasach uważany jest za wysoki. Atak ARP Spoofing jest formą ataku man-in-the-middle, w której atakujący może podsłuchiwać i modyfikować ruch sieciowy. W rezultacie, atakujący może uzyskać dostęp do poufnych informacji, takich jak hasła, dane osobowe i inne wrażliwe informacje.
+- The danger level of an ARP Spoofing attack these days is considered high. An ARP Spoofing attack is a form of man-in-the-middle attack in which an attacker can eavesdrop on and modify network traffic. As a result, the attacker can gain access to sensitive information such as passwords, personal data and other sensitive information.
 
-- Ataki ARP Spoofing są szczególnie niebezpieczne, ponieważ są trudne do wykrycia i zabezpieczenia przed nimi. Wiele urządzeń i sieci nie jest wystarczająco zabezpieczonych przed tą formą ataku, co umożliwia atakującym łatwe wykorzystanie tej luki w zabezpieczeniach.
+- ARP Spoofing attacks are particularly dangerous because they are difficult to detect and protect against. Many devices and networks are not sufficiently protected against this form of attack, allowing attackers to easily exploit this security vulnerability.
 
-- Z tego powodu ważne jest, aby stosować odpowiednie środki ostrożności, takie jak stosowanie oprogramowania antywirusowego, używanie szyfrowania połączeń sieciowych i stosowanie filtrów sieciowych, aby zabezpieczyć się przed atakami ARP Spoofing.
+- For this reason, it is important to take proper precautions, such as using anti-virus software, using network connection encryption and applying network filters to protect against ARP Spoofing attacks.
